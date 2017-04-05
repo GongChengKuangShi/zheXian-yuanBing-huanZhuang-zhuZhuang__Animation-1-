@@ -114,7 +114,8 @@
         }
             break;
         case XRHLineChartQuadrantTypeFirstAndFouthQuardrant: {
-            
+            _perXLen = (_xLength - kXandYSpaceForSuperView) / (_xLineDataArr.count-1);
+            _perYlen = (_yLength/2 - kXandYSpaceForSuperView) / [_yLineDataArr[0] count];
         }
             break;
         case XRHLineChartQuadrantTypeAllQuardrant: {
@@ -209,7 +210,8 @@
         }
             break;
         case XRHLineChartQuadrantTypeFirstAndFouthQuardrant: {
-            
+            [self drawLineWithContext:context andStarPoint:self.chartOrigin andEndPoint:P_M(self.contentInsets.left+_xLength, self.chartOrigin.y) andIsDottedLine:NO andColor:_xAndYLineColor];
+            [self drawLineWithContext:context andStarPoint:P_M(self.contentInsets.left, CGRectGetHeight(self.frame)-self.contentInsets.bottom) andEndPoint:P_M(self.chartOrigin.x, self.contentInsets.top) andIsDottedLine:NO andColor:_xAndYLineColor];
         }
             break;
         case XRHLineChartQuadrantTypeAllQuardrant: {
